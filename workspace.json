@@ -1,0 +1,199 @@
+{
+  "version": 2,
+  "projects": {
+    "design-system": {
+      "root": "packages/design-system",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/workspace:run-script",
+          "options": {
+            "script": "build-styles"
+          }
+        }
+      }
+    },
+    "mm-server": {
+      "root": "apps/mm-server",
+      "sourceRoot": "apps/mm-server/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:webpack",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/mm-server",
+            "main": "apps/mm-server/src/main.ts",
+            "tsConfig": "apps/mm-server/tsconfig.app.json",
+            "assets": ["apps/mm-server/src/assets", "apps/mm-server/src/certs"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/mm-server/src/environments/environment.ts",
+                  "with": "apps/mm-server/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:node",
+          "options": {
+            "buildTarget": "mm-server:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "mm-server:build:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/mm-server/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/mm-server"],
+          "options": {
+            "jestConfig": "apps/mm-server/jest.config.ts",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
+    "mm-sample": {
+      "root": "apps/mm-sample",
+      "sourceRoot": "apps/mm-sample/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:webpack",
+          "outputs": ["{options.outputPath}"],
+          "defaultConfiguration": "production",
+          "options": {
+            "compiler": "babel",
+            "outputPath": "dist/apps/mm-sample",
+            "index": "apps/mm-sample/src/index.html",
+            "baseHref": "/",
+            "main": "apps/mm-sample/src/main.tsx",
+            "polyfills": "apps/mm-sample/src/polyfills.ts",
+            "tsConfig": "apps/mm-sample/tsconfig.app.json",
+            "assets": [
+              "apps/mm-sample/src/dolby-logo.ico",
+              "apps/mm-sample/src/assets"
+            ],
+            "styles": [],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack",
+            "rollupConfig": "rollup.config.js"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/mm-sample/src/environments/environment.ts",
+                  "with": "apps/mm-sample/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "mm-sample:build:development",
+            "hmr": true,
+            "proxyConfig": "apps/mm-sample/proxy.conf.json"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "mm-sample:build:production",
+              "hmr": false
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/mm-sample/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/mm-sample"],
+          "options": {
+            "jestConfig": "apps/mm-sample/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
+    "mm-sample-e2e": {
+      "root": "apps/mm-sample-e2e",
+      "sourceRoot": "apps/mm-sample-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/mm-sample-e2e/cypress.json",
+            "devServerTarget": "mm-sample:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "mm-sample:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/mm-sample-e2e/**/*.{js,ts}"]
+          }
+        }
+      },
+      "tags": [],
+      "implicitDependencies": ["mm-sample"]
+    },
+    "react-ui": {
+      "root": "packages/react-ui",
+      "sourceRoot": "packages/react-ui/src",
+      "projectType": "package",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:webpack",
+          "outputs": ["{options.outputPath}"],
+          "rollupConfig": "rollup.config.js",
+          "options": {
+            "outputPath": "dist/packages/react-ui",
+            "tsConfig": "packages/react-ui/tsconfig.json",
+            "webpackConfig": "@nrwl/react/plugins/webpack",
+            "index": "packages/react-ui/src/index.ts",
+            "main": "packages/react-ui/src/index.ts",
+            "rollupConfig": "rollup.config.js"
+          }
+        }
+      }
+    }
+  },
+  "implicitDependencies": {
+    "packages/design-system/tokens/**/*.json": ["react-ui"]
+  }
+}

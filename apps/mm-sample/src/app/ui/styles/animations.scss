@@ -1,0 +1,52 @@
+.expand-fromtop-animation {
+  transform-origin: center top;
+  animation: expand-fromtop 1s ease-in-out;
+  animation-fill-mode: forwards; // Mainstains last keyframe state
+}
+
+@keyframes expand-fromtop {
+  0% {
+    transform: translateY(-20px);
+    max-height: 0px;
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    max-height: 1000px;
+    opacity: 1;
+  }
+}
+
+.collapse-frombottom-animation {
+  transform-origin: 100% 0%;
+  animation: collapse-frombottom 1s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes collapse-frombottom {
+  0% {
+    max-height: 1000px;
+    opacity: 1;
+  }
+  100% {
+    max-height: 0px;
+    opacity: 0;
+  }
+}
+
+.fadein-fromtop-animation {
+  transform-origin: center top;
+  animation: fadein-fromtop 500ms ease-in-out;
+  animation-fill-mode: forwards; // Mainstains last keyframe state
+}
+
+@keyframes fadein-fromtop {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}

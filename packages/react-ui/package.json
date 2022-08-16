@@ -1,0 +1,9 @@
+{
+  "name": "@dolby-io-uikit/react-ui",
+  "version": "0.0.1",
+  "dependencies": {
+    "@chakra-ui/icons": "^1.1.7",
+    "@chakra-ui/react": "^1.8.6",
+    "framer-motion": "^6"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "color": {
+    "gradient": {
+      "blueToLightBlue": {
+        "value": "linear-gradient(60deg, {color.base.blue.04.value}, 30%, {color.base.lightBlue.04.value})"
+      },
+      "blueToPurple": {
+        "value": "linear-gradient(60deg, {color.base.blue.04.value}, 10%, {color.base.purple.03.value})"
+      },
+      "purpleToLightPink": {
+        "value": "linear-gradient(60deg, #7D33FF, 30%, {color.base.pink.01.value})"
+      },
+      "purpleToPink": {
+        "value": "linear-gradient(60deg, {color.base.purple.05.value}, 30%, {color.base.pink.03.value})"
+      },
+      "blueToGreen": {
+        "value": "linear-gradient(60deg, {color.base.blue.04.value}, 30%, {color.base.green.03.value})"
+      },
+      "lightBlueToGreen": {
+        "value": "linear-gradient(60deg, {color.base.lightBlue.04.value}, 30%, {color.base.green.03.value})"
+      }
+    }
+  }
+}
