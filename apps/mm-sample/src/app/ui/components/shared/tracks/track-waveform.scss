@@ -1,0 +1,72 @@
+input#volume[type='range'] {
+  -webkit-appearance: none;
+  position: relative;
+  overflow: hidden;
+  height: 6px;
+  width: 80%;
+  cursor: pointer;
+}
+
+input#volume::-webkit-slider-runnable-track {
+  background: #b9b9ba;
+  // border-radius: 50px;
+}
+
+/*
+ * 1. Set to 0 width and remove border for a slider without a thumb
+ * 2. Shadow is negative the full width of the input and has a spread
+ *    of the width of the input.
+ */
+input#volume::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px; /* 1 */
+  height: 18px;
+  border-radius: 50px;
+  background: #2c2c31;
+  box-shadow: -200px 0 0 200px #aa33ff; /* 2 */
+}
+
+input#volume::-moz-range-track {
+  height: 40px;
+  background: #b9b9ba;
+}
+
+input#volume::-moz-range-thumb {
+  background: #2c2c31;
+  width: 18px; /* 1 */
+  height: 18px;
+  border-radius: 0 !important;
+  box-shadow: -200px 0 0 200px #aa33ff;
+  box-sizing: border-box;
+  border: none;
+}
+
+input#volume::-ms-fill-lower {
+  background: #aa33ff;
+}
+
+input#volume::-ms-thumb {
+  background: #2c2c31;
+  width: 18px; /* 1 */
+  height: 18px;
+  box-sizing: border-box;
+}
+
+input#volume::-ms-ticks-after {
+  display: none;
+}
+
+input#volume::-ms-ticks-before {
+  display: none;
+}
+
+input#volume::-ms-track {
+  background: #b9b9ba;
+  color: transparent;
+  height: 8px;
+  border: none;
+}
+
+input#volume::-ms-tooltip {
+  display: none;
+}

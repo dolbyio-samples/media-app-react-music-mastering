@@ -1,0 +1,21 @@
+#main-view::after {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  z-index: -1;
+  content: url(/assets/svg/bubbly-focus-background.svg)
+    url(/assets/svg/oasis-focus-background.svg)
+    url(/assets/svg/bouncy-focus-background.svg)
+    url(/assets/svg/thump-focus-background.svg)
+    url(/assets/svg/rumble-focus-background.svg)
+    url(/assets/svg/ambiance-focus-background.svg)
+    url(/assets/svg/crystal-focus-background.svg)
+    url(/assets/svg/electric-focus-background.svg)
+    url(/assets/svg/balance-focus-background.svg)
+    url(/assets/svg/skyscraper-focus-background.svg)
+    url(/assets/svg/hilltop-focus-background.svg)
+    url(/assets/svg/lift-focus-background.svg)
+    url(/assets/svg/shimmer-focus-background.svg)
+    url(/assets/svg/subtle-focus-background.svg);
+}
