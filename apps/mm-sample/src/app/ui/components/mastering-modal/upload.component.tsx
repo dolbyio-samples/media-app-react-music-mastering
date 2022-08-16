@@ -69,7 +69,7 @@ const MasteringModalUpload = () => {
       <Divider />
       <Center>
         <Box pt={6} pb={10}>
-          Upload FLAC, WAV, ALAC, or AIFF for highest audio quality.{' '}
+          Upload FLAC, WAV, or ALAC for highest audio quality.{' '}
           <Link
             color={'base.purple.04.value'}
             href="https://docs.dolby.io/media-apis/docs/music-mastering-api-guide"

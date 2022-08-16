@@ -17,18 +17,9 @@ What can I do with the Music Mastering app?
 
 The steps below will quickly get you started using the Music Mastering application.
 
-## Requirements & supported platforms
-
-The Music Mastering app supports the following browsers:
-
-- Chrome 100+
-- Safari 15+
-- Firefox 100+
-- Edge 100+
-
 ## How to get a Dolby.io account
 
-The Music Mastering API requires you to create a Dolby.io account. To set it up, go to https://dashboard.dolby.io/signnup and complete the form. After confirming your email address, you will be logged in.
+To use the Music Mastering API, you need to create a Dolby.io account. To set it up, go to https://dashboard.dolby.io/signnup and complete the form. After confirming your email address, you will be logged in.
 
 ## Dolby.io dashboard
 
@@ -48,9 +39,11 @@ Create your App key and App secret:
 
 # How to run the Music Mastering app
 
-Below is a list of steps that show you how to run the app locally. In addition to the Music Mastering app, this repository contains a local authentication server that works with the Music Mastering app to make secure calls to the Music Mastering API. This authentication server is for demo purposes only. 
+Below is a list of steps that show you how to run the app locally. In addition to the Music Mastering app, this repository contains a local application server that works with the Music Mastering app to make secure calls to the Music Mastering API. 
 
-**NOTE**: The mastering presets on the _Choose your presets_ page are meant as guidance for how you can customize your music mastering preset names. Please create preset names that are appropriate for your platform.
+**NOTE**: This application server is for demo purposes only. 
+
+
 
 ## Clone the repository
 
@@ -59,32 +52,80 @@ Use Git to clone the repository with `git@github.com:dolbyio-samples/media-app-r
 ## Add your App key and App secret to the environment variables file
 
 1. Copy the `apps/mm-server/.env.local.example` file and rename it: `apps/mm-server/.env.local`.
-2. In the `apps/mm-server/.env.local` file, replace the corresponding values with the App key and App secret.
+2. In the `apps/mm-server/.env.local` file, update the "replace" values to work with your environment.
+
+## Create and install the Music Mastering application server certificate
+
+To use the application server, you must install a certificate to set up the Secure Sockets Layer. 
+Before you start, install the [mkcert](https://github.com/FiloSottile/mkcert) Command Line Interface.
+
+1. Run the following commands using the local Certificate Authority:
+
+```
+cd apps/mm-server/src/certs
+mkcert localhost
+```
+
+2. Install the certificate using the following command and return to the root directory before installing dependencies:
+
+```
+mkcert -install
+cd ../../../..
+```
+
 
 ## Install dependencies
 
-Open the main directory with the terminal.
-
-Install dependencies with this command:
+Using the terminal, in the root directory, install dependencies with this [Yarn](https://yarnpkg.com/) command:
 
 ```
 yarn
 ```
 
 
-## Build the packages
+## Build the Music Mastering application package dependencies
+
+The following command builds the application dependencies and also builds a distribution package. You can find the package in the `/dist` directory. 
+
 
 ```
 yarn build:all
 ```
 
-## Start the Music Mastering authentication server and app
+## Start the Music Mastering application server and app
 
-Run the following commands:
+You must start the application server and the Music Mastering app in separate terminal windows. 
+
+Before you start the Music Mastering sample app, make sure no applications are using port 4200.  
+
+1. Open a terminal window and run the following command:
 
 ```
 yarn start:mm-server
+```
+2. Open a new terminal window and run the following command:
+```
 yarn start:mm-sample
 ```
 
-When the commands are complete, the local host app URL is displayed. Copy and paste the URL into your browser to view the Music Mastering app.   
+When the commands are complete, the sample app URL http://localhost:4200 is displayed. Copy and paste the URL into your browser to view the Music Mastering app.
+
+## Using the Music Mastering app
+
+**NOTE**: The mastering presets on the _Choose your presets_ page are meant as guidance for how you can customize your music mastering preset names. Please create preset names that are appropriate for your platform. 
+
+### Known issues and limitations
+
+- .AIFF track upload is not supported.
+
+### Requirements and supported platforms
+
+The Music Mastering app supports the following browsers:
+
+- Chrome 100+
+- Safari 15+
+- Firefox 100+
+- Edge 100+
+
+
+

@@ -745,7 +745,7 @@ const TrackToggleTab = (
       <IconMultiSelectButton
         id={text}
         style={{
-          width: 134,
+          width: 132,
           height: 42,
           focus: focusStyle,
           icon: {
