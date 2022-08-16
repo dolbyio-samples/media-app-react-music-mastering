@@ -1,0 +1,43 @@
+.progress-line {
+  height: 1px;
+  width: 1px;
+  border-bottom: 2px solid #c4c4c4;
+  align-self: center;
+  flex-grow: 1;
+}
+.progress-line-expand {
+  transform-origin: 0%;
+  animation: expand 1s ease-in-out;
+}
+
+.progress-line-contract {
+  transform-origin: 0%;
+  transform: scaleX(0);
+  animation: contract 1s ease-in-out;
+}
+
+@keyframes expand {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes contract {
+  0% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(0);
+  }
+}
+
+.back-button {
+  &.disabled {
+    cursor: not-allowed;
+    text-decoration: none;
+    pointer-events: none;
+  }
+}

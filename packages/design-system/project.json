@@ -1,0 +1,33 @@
+{
+  "root": "packages/design-system",
+  "sourceRoot": "packages/design-system/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/design-system",
+        "main": "packages/design-system/src/index.ts",
+        "tsConfig": "packages/design-system/tsconfig.lib.json",
+        "assets": ["packages/design-system/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/design-system/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/design-system"],
+      "options": {
+        "jestConfig": "packages/design-system/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

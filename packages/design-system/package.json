@@ -1,0 +1,11 @@
+{
+  "name": "@dolby-io-uikit/design-system",
+  "version": "0.0.1",
+  "type": "commonjs",
+  "scripts": {
+    "build-styles": "style-dictionary build"
+  },
+  "devDependencies": {
+    "style-dictionary": "^3.7.0"
+  }
+}
