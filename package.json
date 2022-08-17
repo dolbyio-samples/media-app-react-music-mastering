@@ -1,11 +1,22 @@
 {
   "name": "music-mastering-sample-app",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "license": "MIT",
   "packageManager": "yarn@3.1.0",
   "workspaces": [
     "apps/*",
     "packages/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dolbyio-samples/media-app-react-music-mastering"
+  },
+  "contributors": [
+    "Thomas Nguyen <Thomas.Nguyen@dolby.com> (https://dolby.io)",
+    "Jay Appaji <Jay.Appaji@dolby.com> (https://dolby.io)",
+    "Chris Wright <Chris.Wright@dolby.com> (https://dolby.io)",
+    "Jim Fan <Ji.Fan@dolby.com> (https://dolby.io)",
+    "Fabien Lavocat <Fabien.Lavocat@dolby.com> (https://dolby.io)"
   ],
   "scripts": {
     "build:all": "nx affected:build --all",
@@ -20,7 +31,7 @@
   "private": true,
   "dependencies": {
     "@dolbyio/dolbyio-rest-apis-client": "^3.1.1",
-    "@dolbyio/media-uikit-react": "^1.0.1",
+    "@dolbyio/media-uikit-react": "^2.0.0",
     "@emotion/react": "11.5.0",
     "@emotion/styled": "11.3.0",
     "@reduxjs/toolkit": "1.6.2",
@@ -38,7 +49,6 @@
     "react-dom": "17.0.2",
     "react-hook-form": "^7.29.0",
     "react-is": "17.0.2",
-    "react-lottie": "^1.2.3",
     "react-redux": "7.2.5",
     "react-router": "^5.2.1",
     "react-router-dom": "5.3.0",
