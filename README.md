@@ -43,11 +43,9 @@ Below is a list of steps that show you how to run the app locally. In addition t
 
 **NOTE**: This application server is for demo purposes only. 
 
-
-
 ## Clone the repository
 
-Use Git to clone the repository with `git@github.com:dolbyio-samples/media-app-react-music-mastering.git` or download and unzip the repository using the green button on the top of this page.
+Use Git to clone this repository `https://github.com/dolbyio-samples/media-app-react-music-mastering.git` or download and unzip the repository using the green button on the top of this page.
 
 ## Add your App key and App secret to the environment variables file
 
@@ -59,52 +57,52 @@ Use Git to clone the repository with `git@github.com:dolbyio-samples/media-app-r
 To use the application server, you must install a certificate to set up the Secure Sockets Layer. 
 Before you start, install the [mkcert](https://github.com/FiloSottile/mkcert) Command Line Interface.
 
-1. Run the following commands using the local Certificate Authority:
+1. Install the local CA in the system trust store using the following command:
 
-```
-cd apps/mm-server/src/certs
-mkcert localhost
-```
-
-2. Install the certificate using the following command and return to the root directory before installing dependencies:
-
-```
+```shell
 mkcert -install
-cd ../../../..
 ```
 
+2. Run the following commands to generate a certificate for the local machine:
+
+```shell
+mkcert \
+    -cert-file ./apps/mm-server/src/certs/localhost.pem \
+    -key-file ./apps/mm-server/src/certs/localhost-key.pem \
+    localhost
+```
 
 ## Install dependencies
 
 Using the terminal, in the root directory, install dependencies with this [Yarn](https://yarnpkg.com/) command:
 
-```
+```shell
 yarn
 ```
 
-
 ## Build the Music Mastering application package dependencies
 
-The following command builds the application dependencies and also builds a distribution package. You can find the package in the `/dist` directory. 
+The following command builds the application dependencies and also builds a distribution package. You can find the package in the `/dist` directory.
 
-
-```
+```shell
 yarn build:all
 ```
 
 ## Start the Music Mastering application server and app
 
-You must start the application server and the Music Mastering app in separate terminal windows. 
+You must start the application server and the Music Mastering app in separate terminal windows.
 
-Before you start the Music Mastering sample app, make sure no applications are using port 4200.  
+Before you start the Music Mastering sample app, make sure no applications are using port 4200.
 
-1. Open a terminal window and run the following command:
+1. Open a terminal window and run the following command to start the backend:
 
-```
+```shell
 yarn start:mm-server
 ```
-2. Open a new terminal window and run the following command:
-```
+
+2. Open a new terminal window and run the following command to start the frontend:
+
+```shell
 yarn start:mm-sample
 ```
 
@@ -112,7 +110,7 @@ When the commands are complete, the sample app URL http://localhost:4200 is disp
 
 ## Using the Music Mastering app
 
-**NOTE**: The mastering presets on the _Choose your presets_ page are meant as guidance for how you can customize your music mastering preset names. Please create preset names that are appropriate for your platform. 
+**NOTE**: The mastering presets on the _Choose your presets_ page are meant as guidance for how you can customize your music mastering preset names. Please create preset names that are appropriate for your platform.
 
 ### Known issues and limitations
 
@@ -120,12 +118,9 @@ When the commands are complete, the sample app URL http://localhost:4200 is disp
 
 ### Requirements and supported platforms
 
-The Music Mastering app supports the following browsers:
+The Music Mastering sample application supports the following browsers:
 
 - Chrome 100+
 - Safari 15+
 - Firefox 100+
 - Edge 100+
-
-
-
