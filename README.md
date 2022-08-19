@@ -41,7 +41,11 @@ Create your App key and App secret:
 
 Below is a list of steps that show you how to run the app locally. In addition to the Music Mastering app, this repository contains a local application server that works with the Music Mastering app to make secure calls to the Music Mastering API. 
 
+Before you get started with running the Music Mastering app, please make sure you have [Yarn](https://yarnpkg.com/) version 2 or later installed. NPM is not supported at this time. 
+
 **NOTE**: This application server is for demo purposes only. 
+
+
 
 ## Clone the repository
 
