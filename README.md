@@ -45,8 +45,6 @@ Before you get started with running the Music Mastering app, please make sure yo
 
 **NOTE**: This application server is for demo purposes only. 
 
-
-
 ## Clone the repository
 
 Use Git to clone this repository `https://github.com/dolbyio-samples/media-app-react-music-mastering.git` or download and unzip the repository using the green button on the top of this page.
