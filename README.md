@@ -4,6 +4,12 @@ The Music Mastering application in this repository demonstrates the capabilities
 
 This repository will demonstrate how to develop the core Dolby.io Music Mastering API features and provide an understanding of how a Music Mastering workflow can look like within a web application. You can download the repository and run the application locally. If you are interested in more details about Dolby.io's Music Mastering capabilities, more information can be found here: https://dolby.io/products/music-mastering/.
 
+Additional guides:
+
+- [Getting started with the Music Mastering UIKit for React Guide](https://docs.dolby.io/media-apis/docs/uikit-getting-started-music-mastering)&mdash;details about how we constructed this application.
+
+- [Music Mastering API Guide](https://docs.dolby.io/media-apis/docs/music-mastering-api-guide)&mdash;lerarn more about the Music Mastering APIs.
+
 What can I do with the Music Mastering app?
 
 - Upload a track.
