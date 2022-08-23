@@ -8,7 +8,7 @@ Additional guides:
 
 - [Getting started with the Music Mastering UIKit for React Guide](https://docs.dolby.io/media-apis/docs/uikit-getting-started-music-mastering)&mdash;details about how we constructed this application.
 
-- [Music Mastering API Guide](https://docs.dolby.io/media-apis/docs/music-mastering-api-guide)&mdash;lerarn more about the Music Mastering APIs.
+- [Music Mastering API Guide](https://docs.dolby.io/media-apis/docs/music-mastering-api-guide)&mdash;learn more about the Music Mastering APIs.
 
 What can I do with the Music Mastering app?
 
