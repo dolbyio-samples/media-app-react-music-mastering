@@ -19,7 +19,7 @@
   },
   "private": true,
   "dependencies": {
-    "@dolbyio/dolbyio-rest-apis-client": "^3.1.1",
+    "@dolbyio/dolbyio-rest-apis-client": "^3.5.3",
     "@dolbyio/media-uikit-react": "^1.0.1",
     "@emotion/react": "11.5.0",
     "@emotion/styled": "11.3.0",
