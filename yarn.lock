@@ -1689,12 +1689,12 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@dolbyio/dolbyio-rest-apis-client@^3.1.1":
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/@dolbyio/dolbyio-rest-apis-client/-/dolbyio-rest-apis-client-3.1.2.tgz#0a174ab6277304008d2ab652b56aff077af398a0"
-  integrity sha512-RFtTIxIy78F4QIMFamHOJx/C6HCa4fycecRhxTjX2ofx3FczIbFfXFMNFmV6vl6Wdz5VB4EGZ8Htn4PkAcRN0w==
+"@dolbyio/dolbyio-rest-apis-client@^3.5.3":
+  version "3.5.3"
+  resolved "https://registry.yarnpkg.com/@dolbyio/dolbyio-rest-apis-client/-/dolbyio-rest-apis-client-3.5.3.tgz#2e5675aa99f59a729346bbbd82e6415f5aea951f"
+  integrity sha512-x5pLKz14uzvVCHDd9DOhDGkTS/AlY2VWHyjEWsWv5iWlEvKYlic7KSi1anoSjpY+k9PMp9vNDk74KJGf9bUIEQ==
   dependencies:
-    follow-redirects "^1.14.9"
+    follow-redirects "^1.15.2"
 
 "@dolbyio/media-uikit-react@^2.0.0":
   version "2.0.0"
@@ -6814,6 +6814,11 @@ follow-redirects@^1.0.0, follow-redirects@^1.14.9:
   version "1.15.1"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.1.tgz#0ca6a452306c9b276e4d3127483e29575e207ad5"
   integrity sha512-yLAMQs+k0b2m7cVxpS1VKJVvoz7SS9Td1zss3XRwXj+ZDH00RJgnuLx7E44wx02kQLrdM3aOOy+FpzS7+8OizA==
+
+follow-redirects@^1.15.2:
+  version "1.15.2"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.2.tgz#b460864144ba63f2681096f274c4e57026da2c13"
+  integrity sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==
 
 forever-agent@~0.6.1:
   version "0.6.1"

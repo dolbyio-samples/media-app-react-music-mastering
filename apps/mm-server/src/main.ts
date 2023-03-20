@@ -9,8 +9,7 @@ import axios, { ResponseType } from 'axios';
 import * as https from 'https';
 import * as fs from 'fs';
 import * as path from 'path';
-
-const dolbyio = require('@dolbyio/dolbyio-rest-apis-client');
+import { authentication, media } from '@dolbyio/dolbyio-rest-apis-client';
 
 import { environment } from './environments/environment';
 
@@ -27,8 +26,8 @@ const SERVER = environment.mapiServer;
 let token = null;
 
 app.post('/media/master/preview', express.json(), async (req, res, next) => {
-  token = await dolbyio.media.platform.getApiAccessToken(KEY, SECRET);
-  const jobId = await dolbyio.media.mastering.startPreview(
+  token = await authentication.getApiAccessToken(KEY, SECRET);
+  const jobId = await media.mastering.startPreview(
     token,
     JSON.stringify(req.body)
   );
@@ -36,17 +35,15 @@ app.post('/media/master/preview', express.json(), async (req, res, next) => {
 });
 
 app.get('/media/master/preview', express.json(), async (req, res, next) => {
-  token = await dolbyio.media.platform.getApiAccessToken(KEY, SECRET);
-  const status = await dolbyio.media.mastering.getPreviewResults(
-    token,
-    req.query['job_id']
-  );
+  token = await authentication.getApiAccessToken(KEY, SECRET);
+  const jobId: string = req.query['job_id'] as string;
+  const status = await media.mastering.getPreviewResults(token, jobId);
   res.send(status);
 });
 
 app.post('/media/master', express.json(), async (req, res, next) => {
-  token = await dolbyio.media.platform.getApiAccessToken(KEY, SECRET);
-  const jobId = await dolbyio.media.mastering.start(
+  token = await authentication.getApiAccessToken(KEY, SECRET);
+  const jobId = await media.mastering.start(
     token,
     JSON.stringify(req.body)
   );
@@ -54,22 +51,20 @@ app.post('/media/master', express.json(), async (req, res, next) => {
 });
 
 app.get('/media/master', express.json(), async (req, res, next) => {
-  token = await dolbyio.media.platform.getApiAccessToken(KEY, SECRET);
-  const status = await dolbyio.media.mastering.getResults(
-    token,
-    req.query['job_id']
-  );
+  token = await authentication.getApiAccessToken(KEY, SECRET);
+  const jobId: string = req.query['job_id'] as string;
+  const status = await media.mastering.getResults(token, jobId);
   res.send(status);
 });
 
 app.post('/media/input', express.json(), async (req, res, next) => {
-  token = await dolbyio.media.platform.getApiAccessToken(KEY, SECRET);
-  const url = await dolbyio.media.io.getUploadUrl(token, req.body['url']);
+  token = await authentication.getApiAccessToken(KEY, SECRET);
+  const url = await media.io.getUploadUrl(token, req.body['url']);
   res.send({ url });
 });
 
 app.get('/media/output', async (req, res, next) => {
-  token = await dolbyio.media.platform.getApiAccessToken(KEY, SECRET);
+  token = await authentication.getApiAccessToken(KEY, SECRET);
   const { token_type: tokenType, access_token: accessToken } = token;
   const { url } = req.query;
   const { data, headers } = await axios({
